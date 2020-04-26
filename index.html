@@ -4,6 +4,46 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>To-Do App</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/css/style.css" />
   </head>
-  <body></body>
+  <body>
+    <nav id="main-nav">
+      <div class="container">
+        <div class="logo"><h1>To-Do App</h1></div>
+      </div>
+    </nav>
+    <section id="app">
+      <div class="container">
+        <form>
+          <label for="new-task">
+            <h1>Add New Task</h1>
+            <input
+              type="text"
+              id="new-task"
+              name="new-task"
+              placeholder="Add your new task"
+          /></label>
+        </form>
+      </div>
+      <div class="tasks-list">
+        <h1>List of your tasks</h1>
+        <ul class="tasks">
+          <li class="single-task">
+            <h1>This is an example task</h1>
+            <span class="delete">X</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <footer id="main-footer">
+      <div class="container">
+        <p>Footer 2020</p>
+      </div>
+    </footer>
+  </body>
 </html>
