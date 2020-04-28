@@ -90,19 +90,26 @@ label input[placeholder] {
 .single-task {
   display: flex;
   justify-content: space-between;
+  transition: 0.3s;
+  background-color: lightsalmon;
 }
 
 .tasks .single-task {
-  border: 1px solid #333;
+  /* border: 1px solid #333; */
   margin: 1rem;
   padding: 1rem 1rem;
   font-size: 1rem;
 }
 
 .single-task span.delete {
-  font-size: 2rem;
-  color: #f2b5d4;
+  font-size: 1.2rem;
+  color: rgb(255, 0, 119);
   cursor: pointer;
+}
+
+.single-task:hover {
+  background-color: rgb(255, 115, 59);
+  border: none;
 }
 
 /* Footer */
@@ -124,4 +131,8 @@ label input[placeholder] {
   text-align: center;
   font-size: 2rem;
   color: white;
+}
+
+.line {
+  text-decoration: line-through;
 }
