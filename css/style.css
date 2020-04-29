@@ -89,7 +89,9 @@ label input[placeholder] {
 
 .single-task {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   transition: 0.3s;
   background-color: lightsalmon;
 }
