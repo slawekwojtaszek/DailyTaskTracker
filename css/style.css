@@ -7,18 +7,26 @@
 
 body {
   font-family: "Ubuntu", sans-serif;
+  background-color: #e8b4bc;
 }
 
 /* Nav */
 
 #main-nav .container {
-  background-color: #333;
+  background-color: #d282a6;
   margin-bottom: 6rem;
   display: flex;
   justify-content: center;
-  padding: 3rem;
+  padding: 2rem;
 }
 #main-nav .container h1 {
+  font-family: "Nanum Pen Script", cursive;
+  font-size: 6rem;
+  color: white;
+}
+#main-nav .container p {
+  font-family: "Nanum Pen Script";
+  text-align: center;
   font-size: 2rem;
   color: white;
 }
@@ -27,17 +35,34 @@ body {
 
 #app {
   display: flex;
-  background-color: #f7f7f7;
+  background-color: #f5e3e0;
   flex-direction: column;
   min-height: 70vh;
   justify-content: center;
   max-width: 600px;
   margin: 0 auto;
-  border: 2px solid #333;
+  border: 2px solid white;
+  border-radius: 7px;
 }
 
 #app .container {
-  padding: 2rem;
+  padding: 3rem;
+}
+
+.add-task {
+  background-color: #6e4555;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: white;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  transition: 0.4s;
+}
+
+.add-task:hover {
+  background-color: #4a2c38;
+  color: white;
+  font-size: 1.3rem;
 }
 
 /* Input */
@@ -55,8 +80,10 @@ form h1 {
 form input {
   width: 100%;
   padding: 1rem;
+  margin: 0.5rem;
   background-color: transparent;
-  border: 1px solid #333;
+  border: 1px solid #6e4555;
+  border-radius: 5px;
 }
 
 label input[placeholder] {
@@ -65,8 +92,16 @@ label input[placeholder] {
 
 /* List of Tasks */
 
+.sum-tasks {
+  font-family: "Nanum Pen Script", cursive;
+  text-align: center;
+  font-size: 5rem;
+  text-shadow: 5px 5px 6px #d282a6;
+  color: white;
+}
+
 .tasks-list {
-  margin-top: 3rem;
+  margin-top: 0.5rem;
 }
 
 .tasks-list .tasks {
@@ -79,9 +114,9 @@ label input[placeholder] {
 }
 
 .tasks {
-  min-height: 70vh;
+  min-height: 40vh;
   width: 100%;
-  padding: 0.5rem;
+  padding: 1rem;
   list-style: none;
 }
 
@@ -93,48 +128,50 @@ label input[placeholder] {
   justify-content: space-between;
   align-items: center;
   transition: 0.3s;
-  background-color: lightsalmon;
+  background-color: #d282a6;
+  color: white;
+  cursor: pointer;
+}
+.single-task span.delete {
+  font-size: 1.2rem;
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.done {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.6s;
+  background-color: rgb(81, 227, 152);
+  font-size: 0.9rem;
 }
 
 .tasks .single-task {
-  /* border: 1px solid #333; */
   margin: 1rem;
   padding: 1rem 1rem;
-  font-size: 1rem;
-}
-
-.single-task span.delete {
   font-size: 1.2rem;
-  color: rgb(255, 0, 119);
-  cursor: pointer;
 }
-
-.single-task:hover {
-  background-color: rgb(255, 115, 59);
-  border: none;
+.tasks .single-task:hover {
+  background-color: rgb(81, 227, 152);
 }
 
 /* Footer */
 
 #main-footer {
-  margin-top: 3rem;
-  position: relative;
-  top: 0;
-  left: 0;
-  border: solid black 2px;
-}
-
-#main-footer .container {
-  background-color: #333;
+  background-color: #3a3238;
 }
 
 #main-footer .container p {
-  padding: 2rem;
+  font-size: 3rem;
+  margin-top: 6rem;
+  padding: 3rem;
   text-align: center;
-  font-size: 2rem;
   color: white;
 }
 
-.line {
-  text-decoration: line-through;
+.search {
+  margin-top: 3rem;
 }

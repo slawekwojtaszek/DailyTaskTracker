@@ -4,15 +4,16 @@ const input = document.querySelector("#new-task");
 const listOfTasks = document.querySelector(".tasks");
 const deleteBtn = document.querySelector(".delete");
 const filter = document.querySelector(".filter");
+const tasksNumber = document.querySelector(".number-tasks");
 
 function addTask(e) {
   let newTask = input.value;
   if (newTask !== "") {
     const li = document.createElement("li");
-    const h1 = document.createElement("h1");
+    // const h1 = document.createElement("h1");
     li.className = "single-task";
-    h1.appendChild(document.createTextNode(newTask));
-    li.appendChild(h1);
+    li.appendChild(document.createTextNode(newTask));
+    // li.appendChild(h1);
     const span = document.createElement("span");
     span.className = "delete";
     span.appendChild(document.createTextNode("X"));
@@ -33,8 +34,8 @@ function removeTask(e) {
 }
 
 function markTask(e) {
-  if (e.target.parentElement.parentElement.classList.contains("tasks")) {
-    console.log("jaha");
+  if (e.target.parentElement.classList.value === "tasks") {
+    e.target.classList.toggle("done");
   }
 }
 
