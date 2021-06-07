@@ -7,75 +7,84 @@
 
 body {
    font-family: "Ubuntu", sans-serif;
-   background-color: rgb(238, 238, 238);
+   background: #feac5e; /* fallback for old browsers */
+   background: -webkit-linear-gradient(
+      to right,
+      #4bc0c8,
+      #c779d0,
+      #feac5e
+   ); /* Chrome 10-25, Safari 5.1-6 */
+   background: linear-gradient(
+      to right,
+      #4bc0c8,
+      #c779d0,
+      #feac5e
+   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 /* Nav */
 #main-nav .container {
-   background-color: rgb(238, 238, 238);
-   margin-bottom: 3rem;
    display: flex;
    justify-content: center;
+   align-items: center;
+   text-align: center;
    padding: 1rem;
 }
 
-#main-nav .container h1 {
-   font-family: "Nanum Pen Script", cursive;
-   font-size: 6rem;
-}
-
-#main-nav .container h1 a {
-   color: rgb(0, 0, 0);
-   text-decoration: none;
-}
+#main-nav .container h1 a,
 #main-nav .container p {
-   font-family: "Nanum Pen Script";
-   text-align: center;
-   font-size: 1.5rem;
-   color: rgb(58, 58, 58);
+   color: rgb(255, 253, 253);
+   text-decoration: none;
 }
 
 /* Main App */
+
 ::-webkit-input-placeholder {
    /* Chrome/Opera/Safari */
+   color: rgb(197, 151, 151);
+   font-size: 2rem;
+}
+
+.filter::-webkit-input-placeholder {
+   padding: 100px 5px;
+   text-align: center;
+   transform: translateY(3px);
+
+   /* Chrome/Opera/Safari */
    color: rgb(255, 255, 255);
-   font-size: 1.5rem;
-   line-height: 2rem;
-   font-weight: 900;
+
+   font-size: 1.4rem;
 }
 
 #app {
-   min-width: 400px;
-   max-width: 40vw;
-   min-height: 70vh;
+   display: flex;
+   background-color: rgba(255, 255, 255, 0.8);
+   height: 80vh;
+   width: 30vw;
    margin: 0 auto;
    display: flex;
    flex-direction: column;
    justify-content: center;
-   border: 4px solid white;
-   border-radius: 7px;
+   align-items: center;
+   /* border: 1px solid rgb(58, 58, 58); */
+   box-shadow: 0px 0px 100px rgb(255, 255, 255);
+   border-radius: 50px;
 }
 
-#app .container {
-   width: 95%;
+/* #app .container {
+   width: 100%;
    margin: 0 auto;
    padding: 2rem;
-}
+} */
 
 .add-task {
    background-color: rgb(58, 58, 58);
    font-family: Arial, Helvetica, sans-serif;
    font-weight: bold;
    color: white;
-   font-size: 1.2rem;
+   font-size: 3rem;
    text-transform: uppercase;
    transition: 0.4s;
-}
-
-.add-task:hover {
-   background-color: rgb(29, 29, 29);
-   color: white;
-   font-size: 1.2rem;
 }
 
 /* Input */
@@ -84,18 +93,20 @@ form h1 {
    text-align: center;
    padding: 0 0 1rem 0;
 }
-form input {
-   width: 100%;
-   padding: 1rem;
-   margin: 0 auto;
-   margin-top: 2rem;
+input.filter {
+   display: flex;
+   width: 80%;
+   margin: 2rem auto;
+   height: 5vh;
+   align-items: center;
+   justify-content: center;
    background-color: transparent;
-   border: 2px solid white;
+   border: 2px solid rgb(255, 255, 255);
    border-radius: 5px;
 }
 
-label input[placeholder] {
-   font-size: 1.5rem;
+label {
+   width: 100%;
 }
 
 /* List of Tasks */
@@ -104,34 +115,53 @@ label input[placeholder] {
    font-family: "Nanum Pen Script";
    text-align: center;
    font-size: 3rem;
-   /* text-shadow: 5px 5px 6px #6495ed; */
+
    color: white;
 }
 
 .tasks-list {
-   margin-top: 1rem;
+   width: 90%;
+   height: 100%;
+   overflow: scroll;
 }
 
 .tasks-list .tasks {
    width: 100%;
 }
 .tasks-list > h1 {
-   font-size: 2rem;
+   font-size: 0.6rem;
    text-align: center;
    margin-bottom: 1rem;
 }
 
 .tasks {
-   min-height: 40vh;
+   display: flex;
+   transform: rotate(180deg);
+   align-items: flex-end;
+   flex-direction: column;
    width: 100%;
-   padding: 1rem;
    list-style: none;
+}
+
+.input-container h1 {
+   text-align: center;
+   font-size: 3rem;
+   text-decoration: underline;
 }
 
 /* Single Task */
 
+input:focus {
+   border: 2px solid rgba(255, 255, 255, 0.995);
+   outline: none;
+}
+
 .single-task {
+   transform: rotate(-180deg);
    display: flex;
+   margin: 0.5rem auto;
+   width: 90%;
+   font-size: 1rem;
    flex-direction: row;
    justify-content: space-between;
    align-items: center;
@@ -139,55 +169,63 @@ label input[placeholder] {
    background-color: white;
    color: rgb(48, 48, 48);
    cursor: pointer;
-   border: 1px solid rgb(255, 255, 255);
+   border: 2px solid rgb(254, 254, 254);
+   border-radius: 5px;
 }
+
 .single-task span.delete {
-   font-size: 1.2rem;
+   font-size: 1rem;
+   padding: 0.5rem;
    color: rgb(52, 52, 52);
    cursor: pointer;
    text-decoration: none;
+   /* border: 2px solid red; */
+}
+
+li.single-task {
+   padding-left: 1rem;
 }
 
 .done {
    display: flex;
+   border-radius: 5px;
+   font-size: 1rem;
    flex-direction: row;
    justify-content: space-between;
    align-items: center;
    transition: 0.4s;
-   background-color: rgb(79, 157, 117);
-   color: white;
-   font-size: 0.9rem;
-   border: 1px solid rgb(255, 255, 255);
+   /* background-color: rgb(113, 242, 118); */
+   /* color: white; */
+   border: 2px solid rgb(255, 255, 255);
 }
 
-.tasks .single-task {
+/* .tasks .single-task {
    margin: 1rem;
    padding: 1rem 1rem;
-   font-size: 1.2rem;
-}
-.tasks .single-task:hover {
-   /* border: 1px solid rgb(2, 2, 2); */
-   background-color: rgb(79, 157, 117);
+   font-size: 0.9rem;
+} */
+/* .tasks .single-task:hover {
+   background-color: rgb(97, 196, 145);
+   border: 1px solid rgb(97, 196, 145);
    color: white;
-   font-size: 1.3rem;
-}
+   font-size: 1.24rem;
+} */
 
 /* Footer */
 #main-footer {
-   margin-top: 5rem;
-   background-color: rgb(238, 238, 238);
+   margin-top: 3rem;
 }
 
 #main-footer .container p {
    font-size: 1rem;
    font-style: oblique;
-   padding: 0rem 1rem 6rem 1rem;
+   padding: 0rem 1rem 0rem 1rem;
    text-align: center;
-   color: rgb(171, 171, 171);
+   color: rgb(255, 255, 255);
 }
 
 .completed {
-   color: rgb(79, 157, 117);
+   color: rgb(43, 247, 142);
 }
 
 .x {
