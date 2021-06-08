@@ -7,19 +7,9 @@
 
 body {
    font-family: "Ubuntu", sans-serif;
-   background: #feac5e; /* fallback for old browsers */
-   background: -webkit-linear-gradient(
-      to right,
-      #4bc0c8,
-      #c779d0,
-      #feac5e
-   ); /* Chrome 10-25, Safari 5.1-6 */
-   background: linear-gradient(
-      to right,
-      #4bc0c8,
-      #c779d0,
-      #feac5e
-   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+   background: #feac5e;
+   background: -webkit-linear-gradient(to right, #4bc0c8, #c779d0, #feac5e);
+   background: linear-gradient(to right, #4bc0c8, #c779d0, #feac5e);
 }
 
 /* Nav */
@@ -29,109 +19,69 @@ body {
    align-items: center;
    text-align: center;
    padding: 1rem;
+   margin-bottom: 2rem;
 }
-
 #main-nav .container h1 a,
 #main-nav .container p {
    color: rgb(255, 253, 253);
    text-decoration: none;
 }
-
 /* Main App */
-
-::-webkit-input-placeholder {
-   /* Chrome/Opera/Safari */
-   color: rgb(197, 151, 151);
-   font-size: 2rem;
-}
-
-.filter::-webkit-input-placeholder {
-   padding: 100px 5px;
-   text-align: center;
-   transform: translateY(3px);
-
-   /* Chrome/Opera/Safari */
-   color: rgb(255, 255, 255);
-
-   font-size: 1.4rem;
-}
 
 #app {
    display: flex;
-   background-color: rgba(255, 255, 255, 0.8);
-   height: 80vh;
+   background-color: rgba(255, 255, 255, 0.6);
+   height: 75vh;
    width: 30vw;
    margin: 0 auto;
    display: flex;
    flex-direction: column;
-   justify-content: center;
+   justify-content: space-around;
    align-items: center;
-   /* border: 1px solid rgb(58, 58, 58); */
-   box-shadow: 0px 0px 100px rgb(255, 255, 255);
+   border: 1px solid rgb(255, 255, 255);
+   box-shadow: 0px 0px 50px rgb(255, 255, 255);
    border-radius: 50px;
 }
 
-/* #app .container {
-   width: 100%;
-   margin: 0 auto;
-   padding: 2rem;
-} */
-
 .add-task {
-   background-color: rgb(58, 58, 58);
    font-family: Arial, Helvetica, sans-serif;
    font-weight: bold;
    color: white;
-   font-size: 3rem;
+   font-size: 4rem;
    text-transform: uppercase;
    transition: 0.4s;
 }
 
 /* Input */
 
-form h1 {
-   text-align: center;
-   padding: 0 0 1rem 0;
-}
+/* */
 input.filter {
    display: flex;
-   width: 80%;
+   width: 60%;
    margin: 2rem auto;
    height: 5vh;
    align-items: center;
    justify-content: center;
    background-color: transparent;
-   border: 2px solid rgb(255, 255, 255);
+   border: 1px solid rgb(255, 255, 255);
    border-radius: 5px;
 }
-
 label {
    width: 100%;
+}
+.line {
+   height: 1px;
+   width: 60%;
+   background-color: white;
 }
 
 /* List of Tasks */
 
-.sum-tasks {
-   font-family: "Nanum Pen Script";
-   text-align: center;
-   font-size: 3rem;
-
-   color: white;
-}
-
 .tasks-list {
    width: 90%;
-   height: 100%;
+   height: 40%;
+   margin-bottom: 2rem;
    overflow: scroll;
-}
-
-.tasks-list .tasks {
-   width: 100%;
-}
-.tasks-list > h1 {
-   font-size: 0.6rem;
-   text-align: center;
-   margin-bottom: 1rem;
 }
 
 .tasks {
@@ -143,6 +93,42 @@ label {
    list-style: none;
 }
 
+#add {
+   display: flex;
+   width: 100%;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+}
+
+#add #new-task {
+   margin-top: 1rem;
+   font-size: 1.5rem;
+   color: #333;
+   width: 25vw;
+   height: 5vh;
+   border: 2px solid white;
+   background: transparent;
+   border-radius: 3px;
+}
+
+#add .add-task {
+   margin-top: 1rem;
+   margin-bottom: 3rem;
+   width: 25vw;
+   height: 5vh;
+   font-size: 0.8rem;
+   background: #c779d0;
+   transition: 0.2s ease-in;
+   border: 0px solid white;
+   border-radius: 5px;
+}
+
+#add .add-task:hover {
+   background: #a464ab;
+   font-size: 1rem;
+}
+
 .input-container h1 {
    text-align: center;
    font-size: 3rem;
@@ -151,35 +137,38 @@ label {
 
 /* Single Task */
 
-input:focus {
-   border: 2px solid rgba(255, 255, 255, 0.995);
-   outline: none;
-}
-
 .single-task {
    transform: rotate(-180deg);
    display: flex;
+   font-weight: 700;
    margin: 0.5rem auto;
+   padding: 0.5rem 1rem;
+   background-color: transparent;
    width: 90%;
    font-size: 1rem;
    flex-direction: row;
    justify-content: space-between;
    align-items: center;
-   transition: 0.3s;
-   background-color: white;
-   color: rgb(48, 48, 48);
+   transition: 0.3s ease-in;
+   color: white;
    cursor: pointer;
    border: 2px solid rgb(254, 254, 254);
    border-radius: 5px;
 }
 
+.single-task:hover {
+   background: #feac5e;
+   background: -webkit-linear-gradient(to left, #4bc0c8, #c779d0, #feac5e);
+   background: linear-gradient(to left, #4bc0c8, #c779d0, #feac5e);
+}
+
 .single-task span.delete {
    font-size: 1rem;
    padding: 0.5rem;
-   color: rgb(52, 52, 52);
+   font-weight: 700;
+   color: white;
    cursor: pointer;
    text-decoration: none;
-   /* border: 2px solid red; */
 }
 
 li.single-task {
@@ -188,47 +177,184 @@ li.single-task {
 
 .done {
    display: flex;
+   font-weight: 700;
    border-radius: 5px;
    font-size: 1rem;
    flex-direction: row;
    justify-content: space-between;
    align-items: center;
    transition: 0.4s;
-   /* background-color: rgb(113, 242, 118); */
-   /* color: white; */
-   border: 2px solid rgb(255, 255, 255);
+   background-color: rgb(43, 247, 142);
+   color: white;
+   border: 0px solid rgb(255, 255, 255);
 }
 
-/* .tasks .single-task {
-   margin: 1rem;
-   padding: 1rem 1rem;
-   font-size: 0.9rem;
-} */
-/* .tasks .single-task:hover {
-   background-color: rgb(97, 196, 145);
-   border: 1px solid rgb(97, 196, 145);
-   color: white;
-   font-size: 1.24rem;
-} */
-
 /* Footer */
+
 #main-footer {
    margin-top: 3rem;
 }
-
 #main-footer .container p {
-   font-size: 1rem;
+   font-size: 0.9rem;
    font-style: oblique;
    padding: 0rem 1rem 0rem 1rem;
    text-align: center;
-   color: rgb(255, 255, 255);
+   color: rgb(55, 55, 55);
 }
-
 .completed {
    color: rgb(43, 247, 142);
+   font-size: 1rem;
+}
+.x {
+   color: white;
+   font-size: 1.1rem;
 }
 
-.x {
-   color: black;
-   font-size: 1.1rem;
+/* Date */
+
+.dateContainer {
+   margin-top: 2rem;
+   padding: 1rem;
+   text-shadow: 0px 0px 70px #919191;
+   font-size: 1.2rem;
+   color: white;
+   font-weight: 700;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+/* PlaceHolders */
+::-webkit-input-placeholder {
+   /* Chrome/Opera/Safari */
+   color: #333;
+   font-size: 1.2rem;
+   text-align: center;
+   border-radius: 5px;
+   color: white;
+   font-weight: 700;
+}
+.filter::-webkit-input-placeholder {
+   text-align: center;
+   transform: translateY(3px);
+   color: rgb(255, 255, 255);
+   font-size: 1.2rem;
+}
+
+input:focus {
+   border: 2px solid rgba(255, 255, 255, 0.995);
+   outline: none;
+}
+
+/* ----------------------------------------------
+ * Generated by Animista on 2021-6-8 20:48:22
+ * Licensed under FreeBSD License.
+ * See http://animista.net/license for more info. 
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+/**
+ * ----------------------------------------
+ * animation slide-out-elliptic-left-bck 
+ * ----------------------------------------
+ */
+@-webkit-keyframes slide-out-elliptic-left-bck {
+   0% {
+      -webkit-transform: translateX(0) rotateY(0) scale(1);
+      transform: translateX(0) rotateY(0) scale(1);
+      -webkit-transform-origin: 2000px 50%;
+      transform-origin: 2000px 50%;
+      opacity: 1;
+   }
+   100% {
+      -webkit-transform: translateX(-1000px) rotateY(30deg) scale(0);
+      transform: translateX(-1000px) rotateY(30deg) scale(0);
+      -webkit-transform-origin: -100% 50%;
+      transform-origin: -100% 50%;
+      opacity: 1;
+   }
+}
+@keyframes slide-out-elliptic-left-bck {
+   0% {
+      -webkit-transform: translateX(0) rotateY(0) scale(1);
+      transform: translateX(0) rotateY(0) scale(1);
+      -webkit-transform-origin: 2000px 50%;
+      transform-origin: 2000px 50%;
+      opacity: 1;
+   }
+   100% {
+      -webkit-transform: translateX(-1000px) rotateY(30deg) scale(0);
+      transform: translateX(-1000px) rotateY(30deg) scale(0);
+      -webkit-transform-origin: -100% 50%;
+      transform-origin: -100% 50%;
+      opacity: 1;
+   }
+}
+
+.slide-out-elliptic-left-bck {
+   -webkit-animation: slide-out-elliptic-left-bck 1s ease-in both;
+   animation: slide-out-elliptic-left-bck 1s ease-in both;
+}
+
+/* ----------------------------------------------
+ * Generated by Animista on 2021-6-8 21:3:58
+ * Licensed under FreeBSD License.
+ * See http://animista.net/license for more info. 
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+/**
+ * ----------------------------------------
+ * animation puff-in-center
+ * ----------------------------------------
+ */
+@-webkit-keyframes puff-in-center {
+   0% {
+      -webkit-transform: scale(2);
+      transform: scale(2);
+      -webkit-filter: blur(4px);
+      filter: blur(4px);
+      opacity: 0;
+   }
+   100% {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+      -webkit-filter: blur(0px);
+      filter: blur(0px);
+      opacity: 1;
+   }
+}
+@keyframes puff-in-center {
+   0% {
+      -webkit-transform: scale(2);
+      transform: scale(2);
+      transform: rotate(-180deg);
+      -webkit-filter: blur(4px);
+      filter: blur(4px);
+      opacity: 0;
+   }
+   100% {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+      transform: rotate(-180deg);
+      -webkit-filter: blur(0px);
+      filter: blur(0px);
+      opacity: 1;
+   }
+}
+
+.puff-in-center {
+   -webkit-animation: puff-in-center 0.4s cubic-bezier(0.47, 0, 0.745, 0.715)
+      both;
+   animation: puff-in-center 0.4s cubic-bezier(0.47, 0, 0.745, 0.715) both;
+}
+
+@media only screen and (max-width: 600px) {
+   #app {
+      height: 75vh;
+      width: 70vw;
+   }
+   .dateContainer {
+      font-size: 0.8rem;
+   }
 }

@@ -5,6 +5,41 @@ const listOfTasks = document.querySelector(".tasks");
 const deleteBtn = document.querySelector(".delete");
 const filter = document.querySelector(".filter");
 const tasksNumber = document.querySelector(".number-tasks");
+const dateElement = document.querySelector(".date");
+
+const myDate = new Date();
+const months = [
+   "January",
+   "February",
+   "March",
+   "April",
+   "May",
+   "June",
+   "July",
+   "August",
+   "September",
+   "October",
+   "November",
+   "December",
+];
+const days = [
+   "Sunday",
+   "Monday",
+   "Tuesday",
+   "Wednesday",
+   "Thursday",
+   "Friday",
+   "Saturday",
+];
+
+const day = myDate.getDay();
+const month = myDate.getMonth();
+
+const year = myDate.getFullYear();
+
+const todaysDate = `${days[day]}, ${day} ${months[month]} ${year}`;
+
+dateElement.textContent = todaysDate;
 
 function addTask(e) {
    let newTask = input.value;
@@ -26,10 +61,15 @@ function addTask(e) {
 
    input.value = "";
    e.preventDefault();
+   console.log(todaysDate);
 }
 
 function removeTask(e) {
+   const el = e.target.parentElement;
+
    if (e.target.parentElement.classList.contains("single-task")) {
+      el.classList.add("slide-out-elliptic-left-bck");
+   } else if (e.target.parentElement.classList.contains("single-task")) {
       console.log("yes");
 
       e.target.parentElement.remove();

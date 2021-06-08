@@ -21,6 +21,10 @@
     </div>
   </nav>
   <section id="app">
+    <div class="dateContainer">
+      <h1 class="date"></h1>
+    </div>
+    <div class="line"></div>
     <label for="new-task">
       <input type="text" placeholder="Search your task" class="filter" />
     </label>
@@ -28,7 +32,7 @@
       <ul class="tasks">
         <li class="single-task"> Listen to the new Clams Casino album<span class="delete">X</span>
         </li>
-        <li class="single-task done"> Add search feature to last project<span class="delete">X</span>
+        <li class="single-task done "> Add search feature to last project<span class="delete">X</span>
         </li>
         <li class="single-task"> Make cold press ginger juice<span class="delete">X</span>
         </li>
@@ -40,13 +44,11 @@
     </div>
     <div class="container">
       <label for="new-task">
-        <div class="input-container">
-          <form id="tasks">
-            <!-- <h1>Add New Task</h1> -->
-            <input type="text" name="new-task" id="new-task" placeholder="Add your new task" />
-            <input type="submit" value="Save Task" class="add-task" />
-          </form>
-        </div>
+        <!-- <h1>Add New Task</h1> -->
+        <form id="add">
+          <input type="text" name="new-task" id="new-task" placeholder="Add your new task" />
+          <input type="submit" value="Save Task" class="add-task" />
+        </form>
       </label>
   </section>
   <footer id="main-footer">
