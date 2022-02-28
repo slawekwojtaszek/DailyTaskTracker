@@ -12,14 +12,51 @@ body {
    background: linear-gradient(to right, #4bc0c8, #c779d0, #feac5e);
 }
 
+.top-bar {
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+   background-color: white;
+   height: 8vh;
+}
+.cont {
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+   flex-direction: column;
+}
+
+.cont p {
+   margin: 0.3rem;
+   font-size: 0.6rem;
+}
+
+.top-bar h1 {
+   text-align: center;
+   color: rgb(34, 34, 34);
+}
+
+/* Date */
+
+.date {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding: 0.7rem;
+   text-shadow: 0px 0px 70px #919191;
+   font-size: 0.8rem;
+   color: white;
+   font-weight: 600;
+}
+
 /* Nav */
 #main-nav .container {
    display: flex;
    justify-content: center;
    align-items: center;
    text-align: center;
-   padding: 1rem;
-   margin-bottom: 2rem;
+   padding: 0.5rem;
+   margin-bottom: 1rem;
 }
 #main-nav .container h1 a,
 #main-nav .container p {
@@ -30,9 +67,10 @@ body {
 
 #app {
    display: flex;
-   background-color: rgba(255, 255, 255, 0.6);
-   height: 40vh;
-   width: 30vw;
+   background-color: rgba(255, 255, 255, 0.982);
+   height: 50vh;
+   padding: 1rem 2rem;
+   width: 10vw;
    margin: 0 auto;
    display: flex;
    flex-direction: column;
@@ -40,7 +78,8 @@ body {
    align-items: center;
    /* border: 1px solid rgb(255, 255, 255); */
 
-   box-shadow: 0px 0px 20px rgb(255, 255, 255);
+   box-shadow: 0px 0px 40px rgb(255, 255, 255);
+   border-radius: 9px;
 }
 
 .add-task {
@@ -56,15 +95,19 @@ body {
 
 /* */
 input.filter {
-   display: flex;
+   display: none;
    width: 60%;
    margin: 2rem auto;
    height: 5vh;
    align-items: center;
    justify-content: center;
    background-color: transparent;
-   border: 1px solid rgb(255, 255, 255);
+   border: 3px solid red;
    border-radius: 5px;
+}
+
+input.filter.tak {
+   display: flex;
 }
 label {
    width: 100%;
@@ -72,11 +115,10 @@ label {
 
 /* List of Tasks */
 
-.tasks-list {
+/* .tasks-list {
    width: 90%;
    margin-bottom: 2rem;
    /* overflow: scroll; */
-}
 
 .tasks {
    display: flex;
@@ -94,7 +136,7 @@ label {
    flex-direction: column;
 }
 
-#add #new-task {
+/* #add #new-task {
    margin-top: 1rem;
    font-size: 1.5rem;
    color: #333;
@@ -103,7 +145,7 @@ label {
    border: 2px solid white;
    background: transparent;
    border-radius: 3px;
-}
+} */
 
 #add .add-task {
    margin-top: 1rem;
@@ -117,11 +159,6 @@ label {
    border-radius: 5px;
 }
 
-#add .add-task:hover {
-   background: #a464ab;
-   font-size: 1rem;
-}
-
 .input-container h1 {
    text-align: center;
    font-size: 3rem;
@@ -132,53 +169,53 @@ label {
 
 .single-task {
    display: flex;
-   font-weight: 700;
-   margin: 0.5rem auto;
-   padding: 0.5rem 1rem;
-   background-color: transparent;
-   width: 90%;
-   font-size: 1rem;
-   flex-direction: row;
    justify-content: space-between;
    align-items: center;
+   width: 100%;
+   /* padding: 0.7rem; */
+   font-weight: 500;
+   margin: 0.5rem auto;
+
+   background-color: transparent;
+   font-size: 0.9rem;
+   flex-direction: row;
    transition: 0.3s ease-in;
-   color: white;
+   color: rgb(60, 60, 60);
    cursor: pointer;
-   border: 2px solid rgb(254, 254, 254);
+   border: 1px solid rgb(0, 0, 0);
    border-radius: 5px;
-}
-
-/* .single-task:hover {
-   background: #feac5e;
-   background: -webkit-linear-gradient(to left, #4bc0c8, #c779d0, #feac5e);
-   background: linear-gradient(to left, #4bc0c8, #c779d0, #feac5e);
-} */
-
-.single-task span.delete {
-   font-size: 1rem;
-   padding: 0.5rem;
-   font-weight: 700;
-   color: white;
-   cursor: pointer;
-   text-decoration: none;
-}
-
-li.single-task {
-   padding-left: 1rem;
 }
 
 .done {
+   width: 100%;
    display: flex;
-   font-weight: 700;
+   font-weight: 500;
    border-radius: 5px;
-   font-size: 1rem;
+   font-size: 0.9rem;
    flex-direction: row;
    justify-content: space-between;
    align-items: center;
    transition: 0.4s;
-   background-color: rgb(43, 247, 142);
-   color: white;
+   background-color: rgba(43, 247, 142, 0.482);
+   color: #333;
    border: 2px solid rgb(43, 247, 142);
+}
+
+.single-task span.delete {
+   font-size: 0.7rem;
+   padding: 0.5rem;
+   margin-left: 0.5rem;
+   font-weight: 700;
+   color: rgb(249, 69, 69);
+   cursor: pointer;
+   text-decoration: none;
+   background-color: rgb(255, 255, 255);
+   border-radius: 5px;
+   border: 1px solid black;
+}
+
+li.single-task {
+   padding-left: 1rem;
 }
 
 /* Footer */
@@ -198,22 +235,8 @@ li.single-task {
    font-size: 1rem;
 }
 .x {
-   color: white;
+   color: rgb(223, 94, 94);
    font-size: 1.1rem;
-}
-
-/* Date */
-
-.dateContainer {
-   margin-top: 2rem;
-   padding: 1rem;
-   text-shadow: 0px 0px 70px #919191;
-   font-size: 1.2rem;
-   color: white;
-   font-weight: 700;
-   display: flex;
-   justify-content: center;
-   align-items: center;
 }
 
 /* PlaceHolders */
@@ -240,11 +263,11 @@ input:focus {
 
 @media only screen and (max-width: 600px) {
    #app {
-      min-height: 75vh;
-      width: 70vw;
+      min-height: 20vh;
+      width: 100vw;
    }
    .dateContainer {
-      font-size: 0.8rem;
+      font-size: 0.6rem;
    }
 
    #add .add-task,
@@ -255,8 +278,8 @@ input:focus {
 
 @media only screen and (max-width: 800px) {
    #app {
-      min-height: 75vh;
-      width: 70vw;
+      height: 70vh;
+      width: 85vw;
    }
    .dateContainer {
       font-size: 0.8rem;
@@ -269,11 +292,11 @@ input:focus {
 }
 @media only screen and (max-width: 1000px) {
    #app {
-      min-height: 75vh;
-      width: 70vw;
+      height: auto;
+      width: 85vw;
    }
    .dateContainer {
-      font-size: 0.8rem;
+      font-size: 0.6rem;
    }
 
    #add .add-task,

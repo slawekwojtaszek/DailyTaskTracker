@@ -11,15 +11,19 @@
 </head>
 
 <body>
+  <button class="test">test</button>
   <nav id="main-nav">
+    <div class="top-bar">
+      <div class="cont">
+        <h1>Daily Tasks</h1>
+        <p>procrastination sorted</p>
+        <h1 class="number">0</h1>
+      </div>
+      <h1 class="date"></h1>
+    </div>
     <div class="container">
       <div class="logo">
-        <h1><a href="#">Daily Tasks</a></h1>
-        <p>procrastination sorted</p>
         <!-- <h1>Focus on quality, not quantity</h1> -->
-      </div>
-      <div class="dateContainer">
-        <h1 class="date"></h1>
       </div>
     </div>
   </nav>
@@ -29,7 +33,9 @@
     </label>
     <div class="tasks-list">
       <ul class="tasks">
-        <li class="single-task"> Listen to the new Clams Casino album<span class="delete">X</span>
+        <li class="single-task">
+          <div class="test"> Listen to the new Clams Casino album </div>
+          <span class="delete">X</span>
         </li>
         <li class="single-task done "> Add search feature to last project<span class="delete">X</span>
         </li>

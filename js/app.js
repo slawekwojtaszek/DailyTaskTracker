@@ -6,6 +6,11 @@ const deleteBtn = document.querySelector(".delete");
 const filter = document.querySelector(".filter");
 const tasksNumber = document.querySelector(".number-tasks");
 const dateElement = document.querySelector(".date");
+const test = document.querySelector(".test");
+const number = document.querySelector(".number");
+
+const myArray = [];
+const myArray2 = [];
 
 const myDate = new Date();
 const months = [
@@ -35,11 +40,38 @@ const days = [
 const day = myDate.getDay();
 const month = myDate.getMonth();
 
+let buttonOn = false;
+
 const year = myDate.getFullYear();
 
 const todaysDate = `${days[day]}, ${day} ${months[month]} ${year}`;
 
 dateElement.textContent = todaysDate;
+
+function addFromArray() {
+   const li = document.createElement("li");
+   const p = document.createElement("p");
+
+   myArray.map((item) => {
+      li.appendChild(document.createTextNode(item));
+      console.log(li);
+      li.className = "single-task";
+      listOfTasks.appendChild(li);
+      const span = document.createElement("span");
+      span.className = "delete";
+      span.appendChild(document.createTextNode("X"));
+      li.appendChild(span);
+      number.textContent = myArray2.length + 1;
+   });
+
+   const newArray = myArray.pop();
+   myArray2.push(newArray);
+
+   const newArrayLen = myArray2.length;
+
+   console.log(myArray2);
+   console.log(newArrayLen);
+}
 
 function addTask(e) {
    let newTask = input.value;
@@ -57,11 +89,12 @@ function addTask(e) {
       span.appendChild(document.createTextNode("X"));
       li.appendChild(span);
       listOfTasks.appendChild(li);
+      myArray.push(newTask);
+      addFromArray();
    }
 
    input.value = "";
    e.preventDefault();
-   console.log(todaysDate);
 }
 
 function removeTask(e) {
@@ -100,7 +133,19 @@ function handleFilter(e) {
    });
 }
 
+function handleOpeningFilter(e) {
+   e.preventDefault();
+   if (!buttonOn) {
+      filter.classList.add("tak");
+      buttonOn = true;
+   } else {
+      filter.classList.remove("tak");
+      buttonOn = false;
+   }
+}
+
 form.addEventListener("submit", addTask);
 listOfTasks.addEventListener("click", markTask);
 listOfTasks.addEventListener("click", removeTask);
 filter.addEventListener("input", handleFilter);
+test.addEventListener("click", handleOpeningFilter);
