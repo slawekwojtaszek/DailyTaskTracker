@@ -65,15 +65,17 @@ function addTask(e) {
 }
 
 function removeTask(e) {
-   const el = e.target.parentElement;
+   // const el = e.target.parentElement;
 
    if (e.target.parentElement.classList.contains("single-task")) {
-      el.classList.add("slide-out-elliptic-left-bck");
-   } else if (e.target.parentElement.classList.contains("single-task")) {
-      console.log("yes");
-
       e.target.parentElement.remove();
    }
+
+   // if (e.target.parentElement.classList.contains("single-task")) {
+   //    el.classList.add("slide-out-elliptic-left-bck");
+   // } else if (e.target.parentElement.classList.contains("single-task")) {
+   //    console.log("yes");
+   // }
 }
 
 function markTask(e) {
