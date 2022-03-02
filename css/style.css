@@ -7,9 +7,107 @@
 
 body {
    font-family: "Ubuntu", sans-serif;
-   background: #feac5e;
+   /* background: #feac5e;
    background: -webkit-linear-gradient(to right, #4bc0c8, #c779d0, #feac5e);
-   background: linear-gradient(to right, #4bc0c8, #c779d0, #feac5e);
+   background: linear-gradient(to right, #4bc0c8, #c779d0, #feac5e); */
+}
+
+.app {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.app-container {
+   background-color: #fff;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-evenly;
+   align-items: center;
+   height: 85vh;
+   width: 80vw;
+   border: 3px solid red;
+}
+
+.top-container,
+.middle-container,
+.bottom-container {
+   width: 100%;
+   /* border: 3px solid black; */
+   margin: 0.4rem;
+   background-color: rgb(98, 30, 255);
+   border-radius: 8px;
+}
+.top-container {
+   display: flex;
+   height: 30%;
+   justify-content: space-around;
+   align-items: center;
+   flex-direction: column;
+}
+
+.top-container .title {
+   font-size: 2rem;
+   color: white;
+}
+
+.top-container .data {
+   font-size: 1rem;
+   color: white;
+}
+
+.top-container .numbers {
+   font-size: 0.8rem;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: row;
+}
+
+.top-container .numbers .pending,
+.top-container .numbers .complete {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   color: white;
+   border-radius: 7px;
+   padding: 0.5rem 0.8rem;
+   margin: 1rem;
+}
+
+.top-container .numbers .pending {
+   background-color: rgb(235, 76, 76);
+}
+
+.top-container .numbers .complete {
+   background-color: rgb(64, 196, 64);
+}
+
+.top-container .search {
+   margin: 0 auto 1rem auto;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 60vw;
+   height: 4vh;
+}
+
+.top-container .search .icon {
+   background-color: #fff;
+}
+
+.middle-container {
+   display: flex;
+   padding: 1rem;
+   justify-content: center;
+   align-items: center;
+   overflow: scroll;
+   max-height: 60vh;
+}
+
+.bottom-container {
+   height: 10%;
 }
 
 .top-bar {
@@ -18,12 +116,6 @@ body {
    align-items: center;
    background-color: white;
    height: 8vh;
-}
-.cont {
-   display: flex;
-   justify-content: space-around;
-   align-items: center;
-   flex-direction: column;
 }
 
 .cont p {
@@ -49,63 +141,6 @@ body {
    font-weight: 600;
 }
 
-/* Nav */
-#main-nav .container {
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   text-align: center;
-   padding: 0.5rem;
-   margin-bottom: 1rem;
-}
-#main-nav .container h1 a,
-#main-nav .container p {
-   color: rgb(255, 253, 253);
-   text-decoration: none;
-}
-/* Main App */
-
-#app {
-   display: flex;
-   background-color: rgba(255, 255, 255, 0.982);
-   height: 50vh;
-   padding: 1rem 2rem;
-   width: 10vw;
-   margin: 0 auto;
-   display: flex;
-   flex-direction: column;
-   justify-content: space-around;
-   align-items: center;
-   /* border: 1px solid rgb(255, 255, 255); */
-
-   box-shadow: 0px 0px 40px rgb(255, 255, 255);
-   border-radius: 9px;
-}
-
-.add-task {
-   font-family: Arial, Helvetica, sans-serif;
-   font-weight: bold;
-   color: white;
-   font-size: 4rem;
-   text-transform: uppercase;
-   transition: 0.4s;
-}
-
-/* Input */
-
-/* */
-input.filter {
-   display: none;
-   width: 60%;
-   margin: 2rem auto;
-   height: 5vh;
-   align-items: center;
-   justify-content: center;
-   background-color: transparent;
-   border: 3px solid red;
-   border-radius: 5px;
-}
-
 input.filter.tak {
    display: flex;
 }
@@ -115,19 +150,6 @@ label {
 
 /* List of Tasks */
 
-/* .tasks-list {
-   width: 90%;
-   margin-bottom: 2rem;
-   /* overflow: scroll; */
-
-.tasks {
-   display: flex;
-   align-items: flex-end;
-   flex-direction: column;
-   width: 100%;
-   list-style: none;
-}
-
 #add {
    display: flex;
    width: 100%;
@@ -135,17 +157,6 @@ label {
    align-items: center;
    flex-direction: column;
 }
-
-/* #add #new-task {
-   margin-top: 1rem;
-   font-size: 1.5rem;
-   color: #333;
-   width: 25vw;
-   height: 4vh;
-   border: 2px solid white;
-   background: transparent;
-   border-radius: 3px;
-} */
 
 #add .add-task {
    margin-top: 1rem;
@@ -167,51 +178,39 @@ label {
 
 /* Single Task */
 
-.single-task {
+li.single-task {
    display: flex;
    justify-content: space-between;
    align-items: center;
-   width: 100%;
-   /* padding: 0.7rem; */
+   min-width: 100%;
+   padding: 0.2rem 0.5rem;
    font-weight: 500;
    margin: 0.5rem auto;
-
    background-color: transparent;
-   font-size: 0.9rem;
+   font-size: 1rem;
    flex-direction: row;
    transition: 0.3s ease-in;
-   color: rgb(60, 60, 60);
+   color: rgb(255, 255, 255);
    cursor: pointer;
-   border: 1px solid rgb(0, 0, 0);
+
    border-radius: 5px;
 }
 
 .done {
-   width: 100%;
-   display: flex;
-   font-weight: 500;
-   border-radius: 5px;
-   font-size: 0.9rem;
-   flex-direction: row;
-   justify-content: space-between;
-   align-items: center;
    transition: 0.4s;
-   background-color: rgba(43, 247, 142, 0.482);
-   color: #333;
-   border: 2px solid rgb(43, 247, 142);
+   color: rgb(208, 27, 27);
 }
 
 .single-task span.delete {
    font-size: 0.7rem;
    padding: 0.5rem;
    margin-left: 0.5rem;
-   font-weight: 700;
-   color: rgb(249, 69, 69);
+   font-weight: 900;
+   color: rgb(98, 30, 255);
    cursor: pointer;
    text-decoration: none;
    background-color: rgb(255, 255, 255);
    border-radius: 5px;
-   border: 1px solid black;
 }
 
 li.single-task {
