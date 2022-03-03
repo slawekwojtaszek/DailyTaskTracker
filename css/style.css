@@ -103,7 +103,15 @@ body {
    justify-content: center;
    align-items: center;
    overflow: scroll;
+
+   min-height: 40vh;
    max-height: 60vh;
+}
+
+.tasks {
+   margin: 2rem 0.5rem;
+   padding: 1rem;
+   max-height: 50vh;
 }
 
 .bottom-container {
@@ -196,9 +204,10 @@ li.single-task {
    border-radius: 5px;
 }
 
-.done {
+.single-task.done {
    transition: 0.4s;
    color: rgb(208, 27, 27);
+   text-decoration: line-through;
 }
 
 .single-task span.delete {

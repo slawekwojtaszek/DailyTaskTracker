@@ -1,11 +1,17 @@
-// const input = document.querySelector("#new-task");
+//Import all elements
+
 const form = document.querySelector("form");
 const input = document.querySelector("#new-task");
 const listOfTasks = document.querySelector(".tasks");
 const deleteBtn = document.querySelector(".delete");
 const filter = document.querySelector(".filter");
-const tasksNumber = document.querySelector(".number-tasks");
+const tasksNumber = document.querySelector(".number");
 const dateElement = document.querySelector(".date");
+
+const pending = document.querySelector(".pendingx");
+const complete = document.querySelector(".completex");
+
+// Create and display today's date
 
 // const myDate = new Date();
 // const months = [
@@ -39,36 +45,40 @@ const dateElement = document.querySelector(".date");
 
 // dateElement.textContent = todaysDate;
 
-let data = ["list1", "list2", "list3"];
-let total = ["list1", "list2", "list3"];
+let data = [
+   "Add search feature to last project",
+   "Make cold press ginger juice",
+   "Row a 5k today",
+   "Do 30 minutes breathing exercise ",
+];
+let flag = true;
 
-let flag = false;
+let totalTasksNumber = data.length - 1;
+let totalPending = data.length;
+let totalComplete = 0;
+
+const updateTasksNumber = () => {
+   totalTasksNumber++;
+   tasksNumber.textContent = totalTasksNumber;
+};
+
+updateTasksNumber();
 
 function addTask(e) {
    let newTask = input.value;
-   data.push(newTask);
-   total.push(newTask);
-   // if (newTask !== "") {
-   //    data.push(newTask);
-   //    const li = document.createElement("li");
-   //    const p = document.createElement("p");
 
-   //    li.className = "single-task";
-   //    li.appendChild(document.createTextNode(newTask));
-   //    const span = document.createElement("span");
-   //    span.className = "delete";
-   //    span.appendChild(document.createTextNode("X"));
-   //    li.appendChild(span);
-   //    listOfTasks.prepend(li);
-   // }
-
-   input.value = "";
+   if (newTask !== "") {
+      data.push(newTask);
+   } else {
+      alert("type something");
+   }
 
    displayTask();
-
+   updateTasksNumber();
    e.preventDefault();
+
+   input.value = "";
 }
-displayTask();
 
 function displayTask() {
    const li = document.createElement("li");
@@ -81,36 +91,52 @@ function displayTask() {
       span.className = "delete";
       span.appendChild(document.createTextNode("X"));
       li.append(span);
-      console.log(total.length);
       listOfTasks.prepend(li);
-   }
-   data = [];
 
-   // const p = document.createElement("p");
-   // li.className = "single-task";
-   // const span = document.createElement("span");
-   // span.className = "delete";
-   // span.appendChild(document.createTextNode("X"));
-   // li.appendChild(span);
+      span.addEventListener("click", (e) => {
+         totalTasksNumber--;
+         tasksNumber.textContent = totalTasksNumber;
+      });
+   }
+   pending.textContent = totalPending;
+   complete.textContent = totalComplete;
+   data = [];
 }
+displayTask();
 
 function removeTask(e) {
    if (e.target.parentElement.classList.contains("single-task")) {
       e.target.parentElement.remove();
    }
-
-   // if (e.target.parentElement.classList.contains("single-task")) {
-   //    el.classList.add("slide-out-elliptic-left-bck");
-   // } else if (e.target.parentElement.classList.contains("single-task")) {
-   //    console.log("yes");
-   // }
 }
 
-function markTask(e) {
-   if (e.target.parentElement.classList.value === "tasks") {
+const updatePending = (e) => {
+   if (e.target.classList.value === "single-task done") {
+      console.log("siema");
+      totalPending = totalPending - 1;
+      pending.textContent = totalPending;
+      totalComplete = totalComplete + 1;
+      complete.textContent = totalComplete;
+      flag = false;
+   } else {
+      totalPending = totalPending + 1;
+      pending.textContent = totalPending;
+      totalComplete = totalComplete - 1;
+      complete.textContent = totalComplete;
+      flag = true;
+   }
+};
+
+const markTask = (e) => {
+   let flag = false;
+
+   if (e.target.parentElement.classList.value === "tasks" && flag === false) {
+      flag = true;
       e.target.classList.toggle("done");
    }
-}
+   updatePending(e);
+   console.log(e.target);
+};
 
 function handleFilter(e) {
    const input = e.target.value.toLowerCase();
