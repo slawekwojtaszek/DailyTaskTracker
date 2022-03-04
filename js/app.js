@@ -10,40 +10,44 @@ const dateElement = document.querySelector(".date");
 
 const pending = document.querySelector(".pendingx");
 const complete = document.querySelector(".completex");
+const date = document.querySelector(".data");
+
+const inputContainer = document.querySelector(".bottom-container");
+const alertContainer = document.querySelector(".alert");
 
 // Create and display today's date
 
-// const myDate = new Date();
-// const months = [
-//    "January",
-//    "February",
-//    "March",
-//    "April",
-//    "May",
-//    "June",
-//    "July",
-//    "August",
-//    "September",
-//    "October",
-//    "November",
-//    "December",
-// ];
-// const days = [
-//    "Sunday",
-//    "Monday",
-//    "Tuesday",
-//    "Wednesday",
-//    "Thursday",
-//    "Friday",
-//    "Saturday",
-// ];
+const myDate = new Date();
+const months = [
+   "January",
+   "February",
+   "March",
+   "April",
+   "May",
+   "June",
+   "July",
+   "August",
+   "September",
+   "October",
+   "November",
+   "December",
+];
+const days = [
+   "Sunday",
+   "Monday",
+   "Tuesday",
+   "Wednesday",
+   "Thursday",
+   "Friday",
+   "Saturday",
+];
 
-// const day = myDate.getDay();
-// const month = myDate.getMonth();
-// const year = myDate.getFullYear();
-// const todaysDate = `${days[day]}, ${day} ${months[month]} ${year}`;
+const day = myDate.getDay();
+const month = myDate.getMonth();
+const year = myDate.getFullYear();
+const todaysDate = `${days[day]}, ${day - 1} ${months[month]} ${year}`;
 
-// dateElement.textContent = todaysDate;
+date.textContent = todaysDate;
 
 let data = [
    "Add search feature to last project",
@@ -70,8 +74,17 @@ function addTask(e) {
    if (newTask !== "") {
       data.push(newTask);
    } else {
-      alert("type something");
+      inputContainer.classList.add("hide");
+      alertContainer.classList.remove("hide-alert");
+
+      setInterval(function () {
+         inputContainer.classList.remove("hide");
+         alertContainer.classList.add("hide-alert");
+      }, 1000);
    }
+
+   totalPending = totalPending + 1;
+   pending.textContent = totalPending;
 
    displayTask();
    updateTasksNumber();
@@ -85,21 +98,30 @@ function displayTask() {
    const p = document.createElement("p");
    for (let i = 0; i < data.length; i++) {
       const li = document.createElement("li");
+      const p3 = document.createElement("p");
+      p3.textContent = data[i];
       li.appendChild(document.createTextNode(data[i]));
+      // li.appendChild(document.createTextNode(todaysDate));
       li.className = "single-task";
+
       const span = document.createElement("span");
+      const p = document.createElement("p");
       span.className = "delete";
       span.appendChild(document.createTextNode("X"));
+
       li.append(span);
       listOfTasks.prepend(li);
 
       span.addEventListener("click", (e) => {
          totalTasksNumber--;
          tasksNumber.textContent = totalTasksNumber;
+
+         deletePending(e);
       });
    }
    pending.textContent = totalPending;
    complete.textContent = totalComplete;
+
    data = [];
 }
 displayTask();
@@ -118,15 +140,24 @@ const updatePending = (e) => {
       totalComplete = totalComplete + 1;
       complete.textContent = totalComplete;
       flag = false;
-   } else {
-      totalPending = totalPending + 1;
-      pending.textContent = totalPending;
+   } else if (e.target.classList.value === "single-task") {
       totalComplete = totalComplete - 1;
       complete.textContent = totalComplete;
+      totalPending = totalPending + 1;
+      pending.textContent = totalPending;
+
       flag = true;
    }
 };
-
+const deletePending = (e) => {
+   if (e.target.parentElement.classList.value === "single-task done") {
+      totalComplete = totalComplete - 1;
+      complete.textContent = totalComplete;
+   } else if (e.target.parentElement.classList.value === "single-task") {
+      totalPending = totalPending - 1;
+      pending.textContent = totalPending;
+   }
+};
 const markTask = (e) => {
    let flag = false;
 
@@ -135,7 +166,7 @@ const markTask = (e) => {
       e.target.classList.toggle("done");
    }
    updatePending(e);
-   console.log(e.target);
+   console.log(e.target.parentElement.classList.value);
 };
 
 function handleFilter(e) {
