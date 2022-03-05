@@ -17,7 +17,22 @@
         <h1>Daily Tasks</h1>
         <p>procrastination sorted</p>
       </div>
-      <h1 class="date"></h1>
+      <div class="button-colour">Change Colour</div>
+    </div>
+    <div class="rangeContainer hide slide-in-top">
+      <div class="conta">
+        <label class="rangeName">Red</label>
+        <input type="range" class="range-input" id="rangeRed" value="=0" min="0" max="255">
+      </div>
+      <div class="conta">
+        <label class="rangeName">Green</label>
+        <input type="range" class="range-input" id="rangeGreen" value="=0" min="0" max="255">
+      </div>
+      <div class="conta">
+        <label class="rangeName">Blue</label>
+        <input type="range" class="range-input" id="rangeBlue" value="=0" min="0" max="255">
+      </div>
+      <div class="rangeNumber">rgb(0, 102, 255)</div>
     </div>
   </nav>
   <section class="app">
@@ -27,8 +42,8 @@
         </div>
         <div class="data"></div>
         <div class="numbers">
-          <div class="pending">Pending <span class="pendingx"></span> </div>
-          <div class="complete">Complete <span class="completex"></span></div>
+          <div class="pending">Pending<span class="pendingx"></span> </div>
+          <div class="complete">Complete<span class="completex"></span></div>
         </div>
         <i class="fa-brands fa-searchengin"></i>
         <div class="test">
@@ -44,7 +59,7 @@
           </ul>
         </div>
       </div>
-      <div class="alert hide-alert">Please, type something</div>
+      <div class="alert hide-alert shake-horizontal ">Please, type something</div>
       <div class="bottom-container">
         <label for="new-task" class="ero">
           <form id="add">

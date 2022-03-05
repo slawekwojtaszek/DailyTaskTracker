@@ -3,10 +3,9 @@
 const form = document.querySelector("form");
 const input = document.querySelector("#new-task");
 const listOfTasks = document.querySelector(".tasks");
-const deleteBtn = document.querySelector(".delete");
+
 const filter = document.querySelector(".filter");
 const tasksNumber = document.querySelector(".number");
-const dateElement = document.querySelector(".date");
 
 const pending = document.querySelector(".pendingx");
 const complete = document.querySelector(".completex");
@@ -14,6 +13,16 @@ const date = document.querySelector(".data");
 
 const inputContainer = document.querySelector(".bottom-container");
 const alertContainer = document.querySelector(".alert");
+
+const colorButton = document.querySelector(".button-colour");
+const rangeNumber = document.querySelector(".rangeNumber");
+const rangeContainer = document.querySelector(".rangeContainer");
+
+// let red = document.getElementById("rangeRed").value;
+// let green = document.getElementById("rangeGreen").value;
+// let blue = document.getElementById("rangeBlue").value;
+
+let mainColour = 0;
 
 // Create and display today's date
 
@@ -49,6 +58,8 @@ const todaysDate = `${days[day]}, ${day - 1} ${months[month]} ${year}`;
 
 date.textContent = todaysDate;
 
+// Variables
+
 let data = [
    "Add search feature to last project",
    "Make cold press ginger juice",
@@ -56,7 +67,6 @@ let data = [
    "Do 30 minutes breathing exercise ",
 ];
 let flag = true;
-
 let totalTasksNumber = data.length - 1;
 let totalPending = data.length;
 let totalComplete = 0;
@@ -73,6 +83,9 @@ function addTask(e) {
 
    if (newTask !== "") {
       data.push(newTask);
+      updateTasksNumber();
+      totalPending = totalPending + 1;
+      pending.textContent = totalPending;
    } else {
       inputContainer.classList.add("hide");
       alertContainer.classList.remove("hide-alert");
@@ -80,32 +93,26 @@ function addTask(e) {
       setInterval(function () {
          inputContainer.classList.remove("hide");
          alertContainer.classList.add("hide-alert");
-      }, 1000);
+      }, 1300);
    }
 
-   totalPending = totalPending + 1;
-   pending.textContent = totalPending;
-
    displayTask();
-   updateTasksNumber();
+
    e.preventDefault();
 
+   //Reset Input
    input.value = "";
 }
 
 function displayTask() {
-   const li = document.createElement("li");
-   const p = document.createElement("p");
    for (let i = 0; i < data.length; i++) {
       const li = document.createElement("li");
-      const p3 = document.createElement("p");
-      p3.textContent = data[i];
+      const p = document.createElement("p");
+      const span = document.createElement("span");
+
       li.appendChild(document.createTextNode(data[i]));
-      // li.appendChild(document.createTextNode(todaysDate));
       li.className = "single-task";
 
-      const span = document.createElement("span");
-      const p = document.createElement("p");
       span.className = "delete";
       span.appendChild(document.createTextNode("X"));
 
@@ -177,15 +184,32 @@ function handleFilter(e) {
 
       if (item.toLowerCase().indexOf(input) !== -1) {
          task.style.display = "flex";
-         console.log("siema");
       } else {
          task.style.display = "none";
-         console.log("nie-siema");
       }
    });
+}
+
+function changeColour() {
+   let red = document.getElementById("rangeRed").value;
+   let green = document.getElementById("rangeGreen").value;
+   let blue = document.getElementById("rangeBlue").value;
+   let mainColour = `rgb(${red}, ${green}, ${blue})`;
+
+   document.documentElement.style.setProperty("--main", `${mainColour}`);
+
+   rangeNumber.innerHTML = mainColour;
 }
 
 form.addEventListener("submit", addTask);
 listOfTasks.addEventListener("click", markTask);
 listOfTasks.addEventListener("click", removeTask);
 filter.addEventListener("input", handleFilter);
+
+document.getElementById("rangeRed").addEventListener("input", changeColour);
+document.getElementById("rangeGreen").addEventListener("input", changeColour);
+document.getElementById("rangeBlue").addEventListener("input", changeColour);
+
+colorButton.addEventListener("click", () => {
+   rangeContainer.classList.toggle("hide");
+});
