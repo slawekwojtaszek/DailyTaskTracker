@@ -15,13 +15,13 @@ body {
 }
 
 .top-bar {
+   margin: 1rem 0;
+   height: 8vh;
    display: flex;
    justify-content: center;
    align-items: center;
    text-align: center;
-   margin-bottom: 1rem;
    background-color: white;
-   height: 8vh;
    color: var(--main);
 }
 
@@ -31,7 +31,6 @@ body {
    align-items: center;
 }
 .app-container {
-   background-color: #fff;
    display: flex;
    flex-direction: column;
    justify-content: space-evenly;
@@ -132,7 +131,7 @@ body {
    justify-content: center;
    align-items: center;
    overflow: scroll;
-   min-height: 40vh;
+   min-height: 45vh;
    max-height: 60vh;
 }
 
@@ -187,17 +186,18 @@ body {
 
 .button-colour {
    margin-left: 1.5rem;
-   background-image: linear-gradient(
+   /* background-image: linear-gradient(
       to right,
       #f857a6 0%,
       #ff5858 51%,
       #f857a6 100%
-   );
-
-   padding: 0.5rem 1.2rem;
-   border-radius: 3px;
+   ); */
+   background-color: rgb(0, 102, 255);
+   padding: 0.8rem 1.2rem;
+   border-radius: 7px;
    font-size: 0.7rem;
    text-transform: uppercase;
+   text-align: center;
    color: white;
    font-weight: 700;
 }
@@ -364,23 +364,76 @@ input:focus {
 
 /* Media Queries */
 
+@media only screen and (max-height: 700px) {
+   .app-container {
+      max-height: 70vh;
+   }
+
+   .top-container {
+      margin-top: 5rem;
+   }
+   #main-footer {
+      margin-top: 4.5rem;
+   }
+}
+
 @media only screen and (min-width: 600px) {
    .app-container {
       margin: 0 auto;
       max-width: 60vw;
+   }
+
+   .rangeContainer {
+      margin: 0 auto;
+      max-width: 70vw;
+   }
+   .bottom-container {
+      padding: 1rem;
    }
 }
 
 @media only screen and (min-width: 800px) {
    .app-container {
       margin: 0 auto;
-      max-width: 40vw;
+      max-width: 35vw;
+   }
+   .rangeContainer {
+      margin: 0 auto;
+      max-width: 55vw;
+   }
+   .bottom-container {
+      padding: 1rem;
    }
 }
 @media only screen and (min-width: 1000px) {
    .app-container {
       margin: 0 auto;
-      max-width: 40vw;
+      max-width: 30vw;
+   }
+   .rangeContainer {
+      margin: 0 auto;
+      max-width: 45vw;
+   }
+   .bottom-container {
+      padding: 1rem;
+   }
+}
+@media only screen and (min-width: 1200px) {
+   .app-container {
+      margin: 0 auto;
+      max-width: 30vw;
+   }
+
+   .rangeContainer {
+      margin: 0 auto;
+      max-width: 45vw;
+   }
+   .bottom-container {
+      padding: 1rem;
+   }
+
+   .tasks {
+      width: 30vw;
    }
 }
 

@@ -18,10 +18,6 @@ const colorButton = document.querySelector(".button-colour");
 const rangeNumber = document.querySelector(".rangeNumber");
 const rangeContainer = document.querySelector(".rangeContainer");
 
-// let red = document.getElementById("rangeRed").value;
-// let green = document.getElementById("rangeGreen").value;
-// let blue = document.getElementById("rangeBlue").value;
-
 let mainColour = 0;
 
 // Create and display today's date
@@ -64,7 +60,8 @@ let data = [
    "Add search feature to last project",
    "Make cold press ginger juice",
    "Row a 5k today",
-   "Do 30 minutes breathing exercise ",
+   "Listen to new Clams Casino album",
+   "Do 30 minutes breathing exercise",
 ];
 let flag = true;
 let totalTasksNumber = data.length - 1;
