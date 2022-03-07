@@ -9,7 +9,7 @@ const tasksNumber = document.querySelector(".number");
 
 const pending = document.querySelector(".pendingx");
 const complete = document.querySelector(".completex");
-const date = document.querySelector(".data");
+const fullDate = document.querySelector(".data");
 
 const inputContainer = document.querySelector(".bottom-container");
 const alertContainer = document.querySelector(".alert");
@@ -48,11 +48,12 @@ const days = [
 ];
 
 const day = myDate.getDay();
+const date = myDate.getDate();
 const month = myDate.getMonth();
 const year = myDate.getFullYear();
-const todaysDate = `${days[day]}, ${day - 1} ${months[month]} ${year}`;
+const todaysDate = `${days[day]}, ${date} ${months[month]} ${year}`;
 
-date.textContent = todaysDate;
+fullDate.textContent = todaysDate;
 
 // Variables
 
@@ -94,6 +95,8 @@ function addTask(e) {
    }
 
    displayTask();
+
+   console.log(day);
 
    e.preventDefault();
 
