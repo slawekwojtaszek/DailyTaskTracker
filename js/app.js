@@ -6,10 +6,11 @@ const listOfTasks = document.querySelector(".tasks");
 
 const filter = document.querySelector(".filter");
 const tasksNumber = document.querySelector(".number");
+const noResults = document.querySelector(".noresults");
 
 const pending = document.querySelector(".pendingx");
 const complete = document.querySelector(".completex");
-const fullDate = document.querySelector(".data");
+const fullDate = document.querySelector(".date");
 
 const inputContainer = document.querySelector(".bottom-container");
 const alertContainer = document.querySelector(".alert");
@@ -17,6 +18,10 @@ const alertContainer = document.querySelector(".alert");
 const colorButton = document.querySelector(".button-colour");
 const rangeNumber = document.querySelector(".rangeNumber");
 const rangeContainer = document.querySelector(".rangeContainer");
+
+const topContainer = document.querySelector(".top-container");
+const middleContainer = document.querySelector(".middle-container");
+const bottomContainer = document.querySelector(".bottom-container");
 
 let mainColour = 0;
 
@@ -184,8 +189,10 @@ function handleFilter(e) {
 
       if (item.toLowerCase().indexOf(input) !== -1) {
          task.style.display = "flex";
+         noResults.classList.remove("show");
       } else {
          task.style.display = "none";
+         noResults.classList.add("show");
       }
    });
 }
@@ -199,6 +206,10 @@ function changeColour() {
    document.documentElement.style.setProperty("--main", `${mainColour}`);
 
    rangeNumber.innerHTML = mainColour;
+
+   topContainer.style.boxShadow = `0px 0px 10px 2px ${mainColour}`;
+   middleContainer.style.boxShadow = `0px 0px 10px 2px ${mainColour}`;
+   bottomContainer.style.boxShadow = `0px 0px 10px 2px ${mainColour}`;
 }
 
 form.addEventListener("submit", addTask);
